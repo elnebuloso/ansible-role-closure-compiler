@@ -1,0 +1,9 @@
+---
+- name: include os variables
+  include_vars: "{{optipng_os}}.yml"
+  when: optipng_os is defined and optipng_os != ""
+
+################################################################################################
+
+- name: install optipng
+  apt: pkg={{optipng_package}} state=present update_cache=yes cache_valid_time=3600
