@@ -1,2 +1,2 @@
 ---
-optipng_os: "{{ansible_distribution|lower}}{{ansible_distribution_major_version|int}}"
+closure_compiler_os: "{{ansible_distribution|lower}}{{ansible_distribution_major_version|int}}"

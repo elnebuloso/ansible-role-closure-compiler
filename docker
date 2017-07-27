@@ -1,6 +1,6 @@
 #!/bin/sh
 
-role=ansible-role-optipng
+role=ansible-role-closure-compiler
 
 while [ $# -gt 0 ]; do
     arg=$1

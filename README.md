@@ -1,6 +1,6 @@
-# Ansible Role - optipng for Linux Server
+# Ansible Role - closure-compiler for Linux Server
 
-[![Build Status](https://travis-ci.org/elnebuloso/ansible-role-optipng.svg?branch=master)](https://travis-ci.org/elnebuloso/ansible-role-optipng)
+[![Build Status](https://travis-ci.org/elnebuloso/ansible-role-closure-compiler.svg?branch=master)](https://travis-ci.org/elnebuloso/ansible-role-closure-compiler)
 
 ## Requirements
 
@@ -20,7 +20,7 @@ None.
 ```
 - hosts: localhost
   roles:
-    - role: elnebuloso.rolname
+    - role: elnebuloso.closure-compiler
 ```
 
 ## Dependencies

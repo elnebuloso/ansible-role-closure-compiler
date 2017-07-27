@@ -1,9 +1,9 @@
 ---
 - name: include os variables
-  include_vars: "{{optipng_os}}.yml"
-  when: optipng_os is defined and optipng_os != ""
+  include_vars: "{{closure_compiler_os}}.yml"
+  when: closure_compiler_os is defined and closure_compiler_os != ""
 
 ################################################################################################
 
-- name: install optipng
-  apt: pkg={{optipng_package}} state=present update_cache=yes cache_valid_time=3600
+- name: install closure-compiler
+  apt: pkg={{closure_compiler_package}} state=present update_cache=yes cache_valid_time=3600

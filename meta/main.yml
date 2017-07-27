@@ -1,6 +1,6 @@
 galaxy_info:
   author: elnebuloso
-  description: optipng for Linux Server
+  description: closure-compiler for Linux Server
   license: license (MIT)
 
   min_ansible_version: 2.0
@@ -15,6 +15,6 @@ galaxy_info:
     - system
     - server
     - development
-    - optipng
+    - closure-compiler
 
 dependencies: []

@@ -7,4 +7,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2017-07-28
 ### Changed
-- release ansible role optipng
+- release ansible role closure-compiler
