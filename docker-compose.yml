@@ -2,11 +2,21 @@ version: "2"
 
 services:
   ubuntu14:
-    image: elnebuloso/ansible:ubuntu14-latest
+    image: elnebuloso/ansible:ubuntu14-1.2.0
     volumes:
       - .:/etc/ansible/roles/ansible-role-closure-compiler
 
   ubuntu16:
-    image: elnebuloso/ansible:ubuntu16-latest
+    image: elnebuloso/ansible:ubuntu16-1.2.0
+    volumes:
+      - .:/etc/ansible/roles/ansible-role-closure-compiler
+
+  centos6:
+    image: elnebuloso/ansible:centos6-1.2.0
+    volumes:
+      - .:/etc/ansible/roles/ansible-role-closure-compiler
+
+  centos7:
+    image: elnebuloso/ansible:centos7-1.2.0
     volumes:
       - .:/etc/ansible/roles/ansible-role-closure-compiler

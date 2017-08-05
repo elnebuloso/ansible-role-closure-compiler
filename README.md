@@ -10,10 +10,16 @@ This role requires Ansible 2.0 or higher, and platform requirements are listed i
 
 - ubuntu14
 - ubuntu16
+- centos6
+- centos7
 
 ## Role Variables
 
-None.
+- [`defaults/main.yml`](https://github.com/elnebuloso/ansible-role-php7/blob/master/defaults/main.yml)
+
+```
+closure_compiler_version: "20170626"
+```
 
 ## Example Playbook
 

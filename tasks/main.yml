@@ -1,9 +1,39 @@
 ---
-- name: include os variables
-  include_vars: "{{closure_compiler_os}}.yml"
-  when: closure_compiler_os is defined and closure_compiler_os != ""
+- include: "{{closure_compiler_os}}.yml"
 
 ################################################################################################
 
-- name: install closure-compiler
-  apt: pkg={{closure_compiler_package}} state=present update_cache=yes cache_valid_time=3600
+# https://github.com/google/closure-compiler/wiki/Binary-Downloads
+
+- name: download closure-compiler
+  get_url:
+    url: "http://dl.google.com/closure-compiler/compiler-{{closure_compiler_version}}.tar.gz"
+    dest: "/tmp/closure-compiler-{{closure_compiler_version}}.tar.gz"
+
+- name: create closure-compiler directory
+  file:
+    path: "/usr/local/bin/closure-compiler-{{closure_compiler_version}}"
+    state: directory
+    mode: 0755
+
+- name: unarchive closure-compiler
+  unarchive:
+    src: "/tmp/closure-compiler-{{closure_compiler_version}}.tar.gz"
+    dest: "/usr/local/bin/closure-compiler-{{closure_compiler_version}}"
+    remote_src: yes
+    mode: 0755
+
+- name: unarchive closure-compiler
+  shell: cp /usr/local/bin/closure-compiler-{{closure_compiler_version}}/closure*.jar /usr/local/bin/closure-compiler-{{closure_compiler_version}}/compiler.jar
+  args:
+    creates: /usr/local/bin/closure-compiler-{{closure_compiler_version}}/compiler.jar
+
+- name: define shortcut
+  set_fact:
+     closure_compiler_jar: /usr/local/bin/closure-compiler-{{closure_compiler_version}}/compiler.jar
+
+- name: create shortcut
+  template:
+    src: closure-compiler
+    dest: /usr/local/bin/closure-compiler
+    mode: 0755

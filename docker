@@ -9,15 +9,23 @@ while [ $# -gt 0 ]; do
         start)
             docker-compose up --build --force-recreate -d
         ;;
-        test)
+        check)
             docker-compose exec ubuntu14 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml --syntax-check
             docker-compose exec ubuntu16 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml --syntax-check
+            docker-compose exec centos6 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml --syntax-check
+            docker-compose exec centos7 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml --syntax-check
         ;;
-        ubuntu14)
+        install)
             docker-compose exec ubuntu14 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml
-        ;;
-        ubuntu16)
             docker-compose exec ubuntu16 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml
+            docker-compose exec centos6 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml
+            docker-compose exec centos7 ansible-playbook -i 'localhost,' -c local /etc/ansible/roles/$role/tests/test.yml
+        ;;
+        verify)
+            docker-compose exec ubuntu14 closure-compiler --version
+            docker-compose exec ubuntu16 closure-compiler --version
+            docker-compose exec centos6 closure-compiler --version
+            docker-compose exec centos7 closure-compiler --version
         ;;
         stop)
             docker-compose stop
