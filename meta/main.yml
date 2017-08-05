@@ -1,6 +1,6 @@
 galaxy_info:
   author: elnebuloso
-  description: closure-compiler for Linux Server
+  description: Google Closure Compiler
   license: license (MIT)
 
   min_ansible_version: 2.0
@@ -12,9 +12,9 @@ galaxy_info:
         - xenial
 
   galaxy_tags:
-    - system
-    - server
     - development
     - closure-compiler
+    - javascript
+    - minifying
 
 dependencies: []
