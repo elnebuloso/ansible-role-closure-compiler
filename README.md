@@ -1,6 +1,6 @@
 # Ansible Role - Google Closure Compiler
 
-[![Build Status](https://travis-ci.org/elnebuloso/ansible-role-closure-compiler.svg?branch=master)](https://travis-ci.org/elnebuloso/ansible-role-closure-compiler)
+![abandoned](https://img.shields.io/badge/project-abandoned-red)
 
 ## Requirements
 
